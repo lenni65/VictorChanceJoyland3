@@ -1,0 +1,111 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    justify-content: center; /* Center the container horizontally */
+    align-items: center; /* Center the container vertically */
+    background-color: rgba(0, 0, 0, 0.6); /* Lighter transparent black background */
+    font-family: 'Calibri', sans-serif; /* Set Calibri as the default font */
+}
+
+.container {
+    position: relative; /* Allow absolute positioning for background */
+    display: flex; /* Display children in a row */
+    align-items: center; /* Align items vertically center */
+    justify-content: center; /* Center the content horizontally */
+    gap: 30px; /* Space between the image and the dialogue */
+    padding: 20px; /* Padding around the container */
+    border-radius: 20px; /* Round corners for the container */
+    background-color: rgba(50, 50, 50, 0); /* Darker transparent color for the container */
+    width: 80%; /* Make container wider */
+    max-width: 800px; /* Max width to prevent it from being too large on larger screens */
+}
+
+.background {
+    position: absolute; /* Position it behind the other elements */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Lighter transparent black background */
+    border-radius: 20px; /* Round corners */
+    z-index: -1; /* Send it behind other elements */
+}
+
+.round-image {
+    width: 90px; /* Default size */
+    height: 90px; /* Default size */
+    border-radius: 50%; /* Make it round */
+    border: 2px solid #fff; /* Optional: Add a white border */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    animation: pulse 1.5s infinite; /* Apply the pulse animation */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1); /* Original size */
+    }
+    50% {
+        transform: scale(1.1); /* Scale up to 110% */
+    }
+}
+
+.dialogue {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker transparent black for the dialogue box */
+    border-radius: 20px; /* Round corners */
+    padding: 15px; /* Set padding */
+    font-size: 16px; /* Set a smaller default font size */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+    text-align: left; /* Align text to the left */
+    max-width: 100%; /* Make sure it fits within the container */
+    color: #fff; /* White text color */
+    overflow-wrap: break-word; /* Ensure text wraps correctly */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Adjust the em text color */
+.dialogue em {
+    color: #969696; /* Color for <em> text */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        padding: 15px; /* Adjust padding */
+        width: 90%; /* Make container wider for mobile */
+        max-width: 600px; /* Smaller max width for mobile */
+    }
+
+    .round-image {
+        width: 70px; /* Smaller size for mobile */
+        height: 70px; /* Smaller size for mobile */
+    }
+
+    .dialogue {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 12px; /* Less padding for mobile */
+        max-width: 100%; /* Ensure it fits within the container */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Further reduce padding */
+        width: 95%; /* Full width for very small screens */
+        max-width: 400px; /* Maximum width for very small screens */
+    }
+
+    .round-image {
+        width: 50px; /* Smaller size for very small screens */
+        height: 50px; /* Smaller size for very small screens */
+    }
+
+    .dialogue {
+        font-size: 12px; /* Smaller font size for very small screens */
+        padding: 8px; /* Less padding for very small screens */
+    }
+}
